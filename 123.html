@@ -3,26 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="个人主页 —— 简洁的个人站点模板，包含关于、项目、联系等模块，注重响应式与无障碍。">
-  <meta name="theme-color" content="#0f67b3" />
   <title>我的主页 · 个人站点</title>
-
-  <!-- 字体与性能预连接 -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- 预加载关键头像以减少布局位移 -->
-  <link rel="preload" as="image" href="https://picsum.photos/id/64/200/200">
-
   <style>
-    /* 优化：尊重 prefers-reduced-motion */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        transition: none !important;
-        animation: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -40,10 +22,7 @@
       --border-light: #e2e8f0;
       --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
       --shadow-hover: 0 20px 32px -12px rgba(0, 0, 0, 0.12);
-    }
-
-    html {
-      scroll-behavior: smooth;
+      transition: all 0.2s ease;
     }
 
     body {
@@ -56,9 +35,6 @@
       justify-content: center;
       padding: 2rem 1.5rem;
       line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background-attachment: fixed;
     }
 
     /* 主卡片 */
@@ -76,28 +52,6 @@
 
     .card:hover {
       box-shadow: var(--shadow-hover);
-    }
-
-    /* 跳转链接（无障碍） */
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-    .skip-link:focus {
-      left: 1rem;
-      top: 1rem;
-      width: auto;
-      height: auto;
-      padding: 0.5rem 0.75rem;
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: 6px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      z-index: 9999;
     }
 
     /* 头部区域 */
@@ -119,14 +73,12 @@
       box-shadow: 0 8px 14px -6px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s;
       background: #e2e8f0;
-      flex-shrink: 0;
     }
 
     .avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     .avatar:hover {
@@ -248,7 +200,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     .project-content {
@@ -306,7 +257,6 @@
       width: 100%;
       border-radius: 1rem;
       margin-top: 0.8rem;
-      display: block;
     }
 
     /* footer */
@@ -364,17 +314,16 @@
   </style>
 </head>
 <body>
-<a class="skip-link" href="#main-content">跳到主要内容</a>
-<div class="card" id="main-content" role="main">
+<div class="card" role="main">
   <header>
-    <div class="avatar" aria-hidden="true">
+    <div class="avatar">
       <!-- 示意头像图片 (来自 picsum 的人像) -->
-      <img src="https://picsum.photos/id/64/200/200" alt="头像：你的名字" width="96" height="96">
+      <img src="https://picsum.photos/id/64/200/200" alt="头像">
     </div>
     <div>
       <h1>你好，我是 你的名字</h1>
       <p class="lead">简单而专注 · 构建有趣的事物 · 持续学习</p>
-      <nav role="navigation" aria-label="主导航">
+      <nav>
         <a href="#about">关于</a>
         <a href="#projects">项目</a>
         <a href="#contact">联系</a>
@@ -384,75 +333,75 @@
 
   <div class="grid">
     <div>
-      <section id="about" class="box" aria-labelledby="about-heading">
-        <h3 id="about-heading">关于</h3>
+      <section id="about" class="box">
+        <h3>关于</h3>
         <p>热爱技术与创造，擅长前端开发与产品设计。相信优雅的界面与流畅的体验能改变世界。闲暇时喜欢开源、写作与徒步。</p>
       </section>
 
-      <section id="projects" class="box" style="margin-top: 1.2rem" aria-labelledby="projects-heading">
-        <h3 id="projects-heading">项目</h3>
+      <section id="projects" class="box" style="margin-top: 1.2rem">
+        <h3>项目</h3>
         <ul class="project-list">
           <li>
             <div class="project-img">
-              <img src="https://picsum.photos/id/26/100/100" alt="项目A 配图" width="50" height="50" loading="lazy">
+              <img src="https://picsum.photos/id/26/100/100" alt="项目配图">
             </div>
             <div class="project-content">
               <strong>项目A</strong> — 现代化工具库，提升开发效率。<br>
-              <span style="font-size:0.85rem;">🔗 <a href="#" style="color:var(--accent);" rel="noopener">查看详情 →</a></span>
+              <span style="font-size:0.85rem;">🔗 <a href="#" style="color:var(--accent);">查看详情 →</a></span>
             </div>
           </li>
           <li>
             <div class="project-img">
-              <img src="https://picsum.photos/id/20/100/100" alt="项目B 配图" width="50" height="50" loading="lazy">
+              <img src="https://picsum.photos/id/20/100/100" alt="项目配图">
             </div>
             <div class="project-content">
               <strong>项目B</strong> — 个人博客系统，支持暗色模式与 SEO 优化。<br>
-              <span style="font-size:0.85rem;">🔗 <a href="#" style="color:var(--accent);" rel="noopener">查看详情 →</a></span>
+              <span style="font-size:0.85rem;">🔗 <a href="#" style="color:var(--accent);">查看详情 →</a></span>
             </div>
           </li>
           <li>
             <div class="project-img">
-              <img src="https://picsum.photos/id/22/100/100" alt="项目C 配图" width="50" height="50" loading="lazy">
+              <img src="https://picsum.photos/id/22/100/100" alt="项目配图">
             </div>
             <div class="project-content">
               <strong>项目C</strong> — 开源组件库，累计 300+ 星标。<br>
-              <span style="font-size:0.85rem;">🔗 <a href="#" style="color:var(--accent);" rel="noopener">查看详情 →</a></span>
+              <span style="font-size:0.85rem;">🔗 <a href="#" style="color:var(--accent);">查看详情 →</a></span>
             </div>
           </li>
         </ul>
       </section>
 
-      <section id="contact" class="box" style="margin-top: 1.2rem" aria-labelledby="contact-heading">
-        <h3 id="contact-heading">联系</h3>
+      <section id="contact" class="box" style="margin-top: 1.2rem">
+        <h3>联系</h3>
         <div class="contact-info">
           <p>📧 邮箱：<a href="mailto:you@example.com">you@example.com</a></p>
-          <p>💬 社交：<a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer">twitter.com/yourname</a> · <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer">github.com/yourname</a></p>
-          <p>🌐 个人页：<a href="https://www.yourname.me" target="_blank" rel="noopener noreferrer">www.yourname.me</a></p>
+          <p>💬 社交：<a href="#">twitter.com/yourname</a> · <a href="#">github.com/yourname</a></p>
+          <p>🌐 个人页：<a href="#">www.yourname.me</a></p>
         </div>
       </section>
     </div>
 
     <aside>
-      <div class="box" aria-labelledby="status-heading">
-        <h4 id="status-heading">状态</h4>
+      <div class="box">
+        <h4>状态</h4>
         <p>✨ 目前开放合作 & 技术交流<br>📍 远程 / 上海</p>
         <p style="font-size:0.85rem; margin-top:10px">⏳ 正在探索 AI 应用与 next.js</p>
         <!-- 装饰图片 -->
-        <img class="deco-img" src="https://picsum.photos/id/0/300/150" alt="装饰风景" width="300" height="150" loading="lazy">
+        <img class="deco-img" src="https://picsum.photos/id/0/300/150" alt="装饰风景">
       </div>
-      <div class="box" style="margin-top: 1.2rem" aria-labelledby="links-heading">
-        <h4 id="links-heading">更多链接</h4>
+      <div class="box" style="margin-top: 1.2rem">
+        <h4>更多链接</h4>
         <div class="link-group">
           <p><a href="#">📖 博客 / 技术笔记</a><br>
           <a href="#">📄 在线简历</a><br>
           <a href="#">🛠️ 作品集展示</a></p>
         </div>
       </div>
-      <div class="box" style="margin-top: 1.2rem" aria-labelledby="tech-heading">
-        <h4 id="tech-heading">技术栈</h4>
+      <div class="box" style="margin-top: 1.2rem">
+        <h4>技术栈</h4>
         <p style="font-size:0.85rem;">React · Vue · Node · Python · Tailwind</p>
         <!-- 另一个小装饰图 -->
-        <img class="deco-img" src="https://picsum.photos/id/91/300/150" alt="代码示意" width="300" height="150" loading="lazy" style="margin-top: 12px;">
+        <img class="deco-img" src="https://picsum.photos/id/91/300/150" alt="代码示意" style="margin-top: 12px;">
       </div>
     </aside>
   </div>
@@ -462,28 +411,14 @@
   </footer>
 </div>
 
-<!-- 结构化数据：Person，便于搜索引擎识别 -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"你的名字","url":"https://yourname.me","sameAs":["https://github.com/yourname","https://twitter.com/yourname"],"jobTitle":"前端开发者"}
-</script>
-
 <script>
-  // 设置年份并优雅降级
-  try {
-    document.getElementById('year').textContent = new Date().getFullYear();
-  } catch (e) {}
-
-  // 平滑滚动已由 html { scroll-behavior: smooth } 提供，退回方案（在 prefers-reduced-motion 被禁用时）
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // 平滑滚动
   document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // 将焦点移到目标以便屏幕阅读器
-        target.setAttribute('tabindex', '-1');
-        target.focus({ preventScroll: true });
-      }
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 </script>
