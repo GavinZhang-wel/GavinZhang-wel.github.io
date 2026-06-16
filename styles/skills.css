@@ -1,0 +1,55 @@
+/* styles/skills.css
+   Styles for the in-page skills details and accessible anchors
+*/
+
+/* 技能链接样式改进（确保 a.skill-card 看起来像卡片） */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg);
+  border-radius: 16px;
+  transition: transform 0.18s, box-shadow 0.18s;
+  border: 1px solid var(--border);
+}
+.skill-card:focus,
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  outline: none;
+}
+
+/* 详情区默认隐藏，只展示锚点指向的元素（:target）*/
+.skill-detail {
+  display: none;
+  margin-top: 28px;
+  padding: 22px;
+  background: var(--surface);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+.skill-detail:target {
+  display: block;
+  animation: fadeIn 220ms ease;
+}
+
+/* 使锚点点击后可聚焦 */
+.skill-detail:target {
+  outline: none;
+}
+.detail-close {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* 小动画 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
