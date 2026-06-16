@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>人生修行路 · 个人电子记录</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="GavinZhang · 生物制药生产与研发管理 · 10年以上经验" />
+  <title>GavinZhang · 生物制药管理简历</title>
   <style>
     * {
       margin: 0;
@@ -14,7 +15,7 @@
     :root {
       --bg-deep: #f8fafc;
       --bg-surface: #ffffff;
-      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-bg: rgba(255, 255, 255, 0.92);
       --accent: #0f67b3;
       --accent-glow: #0f67b330;
       --text-primary: #0f172a;
@@ -22,11 +23,10 @@
       --border-light: #e2e8f0;
       --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
       --shadow-hover: 0 20px 32px -12px rgba(0, 0, 0, 0.12);
-      transition: all 0.2s ease;
     }
 
     body {
-      background: linear-gradient(135deg, #f1f5f9 0%, #e6edf4 100%);
+      background: linear-gradient(135deg, #eef2f9 0%, #e0e8f2 100%);
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       color: var(--text-primary);
       min-height: 100vh;
@@ -39,7 +39,7 @@
 
     /* 主卡片 */
     .card {
-      max-width: 1050px;
+      max-width: 1180px;
       width: 100%;
       background: var(--bg-surface);
       backdrop-filter: blur(0px);
@@ -62,17 +62,18 @@
       align-items: center;
       padding-bottom: 1.75rem;
       border-bottom: 1px solid var(--border-light);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
     }
 
     .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 28px;
+      width: 100px;
+      height: 100px;
+      border-radius: 32px;
       overflow: hidden;
-      box-shadow: 0 8px 14px -6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.12);
       transition: transform 0.2s;
       background: #e2e8f0;
+      flex-shrink: 0;
     }
 
     .avatar img {
@@ -85,26 +86,37 @@
       transform: scale(1.02);
     }
 
-    h1 {
-      font-size: 1.9rem;
-      font-weight: 600;
-      letter-spacing: -0.3px;
+    .title-group h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
       color: #0f172a;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .title-group .badge {
+      display: inline-block;
+      background: #eef2ff;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      margin-top: 0.3rem;
     }
 
     .lead {
       color: var(--text-secondary);
       font-size: 1rem;
-      max-width: 450px;
-      margin-bottom: 1rem;
+      max-width: 520px;
+      margin-top: 0.4rem;
     }
 
-    /* 导航 */
     nav {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.8rem;
       flex-wrap: wrap;
+      margin-top: 0.5rem;
     }
 
     nav a {
@@ -125,30 +137,30 @@
     /* 两栏网格 */
     .grid {
       display: grid;
-      grid-template-columns: 1fr 260px;
+      grid-template-columns: 1fr 280px;
       gap: 1.8rem;
-      margin: 1rem 0 0.5rem;
+      margin: 0.5rem 0 0.5rem;
     }
 
     /* 通用卡片区块 */
     .box {
       background: #ffffff;
       border-radius: 1.5rem;
-      padding: 1.3rem 1.5rem;
+      padding: 1.35rem 1.6rem;
       border: 1px solid var(--border-light);
       transition: all 0.25s;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
     }
 
     .box:hover {
       border-color: #cbd5e1;
-      box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.1);
     }
 
     .box h3, .box h4 {
       font-weight: 600;
       font-size: 1.25rem;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.9rem;
       letter-spacing: -0.2px;
       display: flex;
       align-items: center;
@@ -159,67 +171,97 @@
     .box h3:before, .box h4:before {
       content: "✦";
       color: var(--accent);
-      font-size: 1rem;
-      opacity: 0.8;
+      font-size: 1.1rem;
+      opacity: 0.85;
     }
 
-    /* 项目列表改造为卡片式项目，带配图 */
-    .project-list {
+    /* 工作经历列表样式 */
+    .exp-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.2rem;
     }
 
-    .project-list li {
+    .exp-list li {
       background: #f8fafc;
-      padding: 0.8rem 1rem;
-      border-radius: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 1.2rem;
       transition: all 0.2s;
-      border-left: 3px solid var(--accent);
+      border-left: 4px solid var(--accent);
       display: flex;
       gap: 1rem;
       align-items: flex-start;
     }
 
-    .project-list li:hover {
+    .exp-list li:hover {
       background: #f1f5f9;
       transform: translateX(4px);
     }
 
-    .project-img {
-      width: 50px;
-      height: 50px;
+    .exp-icon {
+      width: 52px;
+      height: 52px;
       flex-shrink: 0;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      background: #eef2ff;
     }
 
-    .project-img img {
+    .exp-icon img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .project-content {
+    .exp-content {
       flex: 1;
     }
 
-    .project-content strong {
+    .exp-content strong {
       color: var(--accent);
-      font-weight: 600;
+      font-weight: 700;
       display: inline-block;
       margin-bottom: 0.2rem;
+      font-size: 1rem;
     }
 
-    /* 联系信息样式 */
+    .exp-company {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #0f172a;
+    }
+
+    .exp-date {
+      font-size: 0.75rem;
+      color: #5b6e8c;
+      background: #e9eef3;
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      margin-left: 0.6rem;
+    }
+
+    .exp-desc {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
     .contact-info p {
-      margin: 0.5rem 0;
+      margin: 0.6rem 0;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
       color: var(--text-secondary);
+      font-size: 0.9rem;
+      flex-wrap: wrap;
     }
 
     .contact-info a {
@@ -233,18 +275,35 @@
       border-bottom-style: solid;
     }
 
-    /* 侧边栏区块 */
-    aside .box p {
+    /* 侧边栏细节 */
+    aside .box p, aside .box li {
       margin: 0.5rem 0;
       font-size: 0.9rem;
     }
 
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-tags span {
+      background: #eef2ff;
+      padding: 0.25rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
     .link-group a {
       display: inline-block;
-      margin: 0.2rem 0;
+      margin: 0.25rem 0;
       color: var(--accent);
       text-decoration: none;
       transition: 0.2s;
+      font-size: 0.9rem;
     }
 
     .link-group a:hover {
@@ -252,14 +311,12 @@
       padding-left: 4px;
     }
 
-    /* 装饰图片 */
     .deco-img {
       width: 100%;
       border-radius: 1rem;
-      margin-top: 0.8rem;
+      margin-top: 0.9rem;
     }
 
-    /* footer */
     footer {
       margin-top: 2rem;
       padding-top: 1rem;
@@ -270,7 +327,7 @@
     }
 
     /* 响应式 */
-    @media (max-width: 760px) {
+    @media (max-width: 780px) {
       .grid {
         grid-template-columns: 1fr;
         gap: 1.2rem;
@@ -290,17 +347,16 @@
         width: 80px;
         height: 80px;
       }
-      .project-list li {
+      .exp-list li {
         flex-direction: column;
         align-items: flex-start;
       }
-      .project-img {
-        width: 100%;
-        height: 120px;
+      .exp-icon {
+        width: 44px;
+        height: 44px;
       }
     }
 
-    /* 自定义滚动条 */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -317,108 +373,176 @@
 <div class="card" role="main">
   <header>
     <div class="avatar">
-      <!-- 示意头像图片 (来自 picsum 的人像) -->
-      <img src="https://picsum.photos/id/64/200/200" alt="头像">
+      <!-- 风格化头像占位，仅作示意 -->
+      <img src="https://picsum.photos/id/64/200/200" alt="profile">
     </div>
-    <div>
-      <h1>你好，我是GavinZhang</h1>
-      <p class="lead">简单而专注 · 构建有趣的事物 · 持续学习</p>
+    <div class="title-group">
+      <h1>Gavin Zhang</h1>
+      <div class="badge">生物制药 · 生产与研发管理</div>
+      <p class="lead">10+年生物技术领域全流程管理经验 | 从研发到量产 · 统筹交付</p>
       <nav>
         <a href="#about">关于</a>
-        <a href="#projects">项目</a>
+        <a href="#experience">工作经历</a>
+        <a href="#education">教育</a>
         <a href="#contact">联系</a>
       </nav>
     </div>
   </header>
 
   <div class="grid">
+    <!-- 左侧主要内容区域 -->
     <div>
+      <!-- 关于/个人优势 -->
       <section id="about" class="box">
         <h3>关于</h3>
-        <p>热爱技术与创造，无擅长。相信人生本无意义，最总尘归尘。闲暇时喜欢开源、篮球与徒步。</p>
+        <p style="margin-bottom: 0.5rem;">✔ 10年以上生物制药行业生产与研发双线管理经验，擅长从0到1搭建生产计划及研发转化流程。<br>
+        ✔ 具备出色的抗压能力与问题解决思维，能够带领团队高效完成新产品试生产及批量交付。<br>
+        ✔ 熟悉GMP规范，精通生产进度控制、跨部门协调，确保项目按质按期落地。<br>
+        ✔ 始终以责任感驱动，无论面对任何困难，都坚持高标执行，驱动团队持续精进。</p>
       </section>
 
-      <section id="projects" class="box" style="margin-top: 1.2rem">
-        <h3>项目</h3>
-        <ul class="project-list">
+      <!-- 工作经历 (时间倒序) -->
+      <section id="experience" class="box" style="margin-top: 1.2rem">
+        <h3>工作经历</h3>
+        <ul class="exp-list">
+          <!-- 成都鸬鹚生物技术有限公司 (最新) -->
           <li>
-            <div class="project-img">
-              <img src="https://picsum.photos/id/26/100/100" alt="项目配图">
+            <div class="exp-icon">
+              <img src="https://picsum.photos/id/42/100/100" alt="company">
             </div>
-            <div class="project-content">
-              <strong>项目A</strong> — 现代化工具库，提升开发效率。<br>
-              <span style="font-size:0.85rem;">🔗 <a href="#" style="color:var(--accent);">查看详情 →</a></span>
+            <div class="exp-content">
+              <div><span class="exp-company">成都鸬鹚生物技术有限公司</span><span class="exp-date">2023.04 – 至今</span></div>
+              <strong>生产/研发负责人</strong>
+              <div class="exp-desc">
+                • 统筹公司生产与研发体系，协调资源推动新产品中试及量产转化。<br>
+                • 优化生产流程及工艺，提高产能与质量稳定性，制定月度生产计划并监督执行。<br>
+                • 领导技术转移项目，确保研发成果平稳落地，保障供应连续性。
+              </div>
             </div>
           </li>
+          <!-- 四川肽瑞莎生物科技有限公司 -->
           <li>
-            <div class="project-img">
-              <img src="https://picsum.photos/id/20/100/100" alt="项目配图">
+            <div class="exp-icon">
+              <img src="https://picsum.photos/id/29/100/100" alt="company">
             </div>
-            <div class="project-content">
-              <strong>项目B</strong> — 个人博客系统，支持暗色模式与 SEO 优化。<br>
-              <span style="font-size:0.85rem;">🔗 <a href="#" style="color:var(--accent);">查看详情 →</a></span>
+            <div class="exp-content">
+              <div><span class="exp-company">四川肽瑞莎生物科技有限公司</span><span class="exp-date">2021.07 – 2023.03</span></div>
+              <strong>生产经理</strong>
+              <div class="exp-desc">
+                • 根据公司产品开发计划，组织研发组完成新产品研发、试生产及工艺验证。<br>
+                • 依据客户订单制定生产排程，全程管控生产进度，保障订单按时交付。<br>
+                • 负责生产团队日常管理与培训，推动车间标准化作业，提升生产效率。
+              </div>
             </div>
           </li>
+          <!-- 成都汇瑞新元生物科技有限公司 -->
           <li>
-            <div class="project-img">
-              <img src="https://picsum.photos/id/22/100/100" alt="项目配图">
+            <div class="exp-icon">
+              <img src="https://picsum.photos/id/48/100/100" alt="company">
             </div>
-            <div class="project-content">
-              <strong>项目C</strong> — 开源组件库，累计 300+ 星标。<br>
-              <span style="font-size:0.85rem;">🔗 <a href="#" style="color:var(--accent);">查看详情 →</a></span>
+            <div class="exp-content">
+              <div><span class="exp-company">成都汇瑞新元生物科技有限公司</span><span class="exp-date">2017.06 – 2021.07</span></div>
+              <strong>研发部经理</strong>
+              <div class="exp-desc">
+                • 负责生物产品研发项目立项、实验方案设计及核心技术攻关。<br>
+                • 带领研发团队完成多款原料/试剂的中试放大，推动产品从实验室走向小批量产。<br>
+                • 建立研发文档规范，协同生产部门完成工艺转移与质量评估。
+              </div>
+            </div>
+          </li>
+          <!-- 成都正能生物技术有限责任公司 -->
+          <li>
+            <div class="exp-icon">
+              <img src="https://picsum.photos/id/36/100/100" alt="company">
+            </div>
+            <div class="exp-content">
+              <div><span class="exp-company">成都正能生物技术有限责任公司</span><span class="exp-date">2011.04 – 2017.06</span></div>
+              <strong>生产部经理</strong>
+              <div class="exp-desc">
+                • 全面负责生产计划的制定、排产及车间日常管理，确保安全与质量体系落地。<br>
+                • 优化生产线排程，降低物料损耗，年度综合产能提升约18%。<br>
+                • 主导员工技能培训与绩效考核，打造高执行力生产团队。
+              </div>
             </div>
           </li>
         </ul>
       </section>
 
+      <!-- 教育经历 -->
+      <section id="education" class="box" style="margin-top: 1.2rem">
+        <h3>教育背景</h3>
+        <div style="margin-bottom: 0.25rem;"><strong>成都医学院</strong> · 生物技术专业 · 本科 | 2006 – 2010</div>
+        <div class="exp-desc" style="margin-top: 0.35rem;">
+          • 主修生物化学、分子生物学、细胞工程等课程，具备扎实实验技能。<br>
+          • 在校期间参与学校科研中心课题，善于发现并解决实验问题，责任心强。<br>
+          • 多次获得学业奖学金，毕业设计聚焦蛋白表达与纯化方向。
+        </div>
+      </section>
+
+      <!-- 联系方式 -->
       <section id="contact" class="box" style="margin-top: 1.2rem">
-        <h3>联系</h3>
+        <h3>联系方式</h3>
         <div class="contact-info">
-          <p>📧 邮箱：<a href="lc007@luci-bio.com">lc007@luci-bio.com</a></p>
-          <p>💬 社交：<a href="#">twitter.com/yourname</a> · <a href="#">github.com/yourname</a></p>
-          <p>🌐 个人页：<a href="#">www.yourname.me</a></p>
+          <p>📞 电话：<a href="tel:+8615828656752">158 2865 6752</a></p>
+          <p>✉️ 邮箱：<a href="mailto:450316470@qq.com">450316470@qq.com</a></p>
+          <p>📍 地址：中国 · 成都 · 双流区</p>
+          <p>🌐 语言：中文（母语） | 英文（技术文献读写）</p>
         </div>
       </section>
     </div>
 
+    <!-- 右侧辅助信息栏 -->
     <aside>
       <div class="box">
-        <h4>状态</h4>
-        <p>✨ 目前开放合作 & 技术交流<br>📍 远程 / 上海</p>
-        <p style="font-size:0.85rem; margin-top:10px">⏳ 正在探索 AI 应用与 next.js</p>
-        <!-- 装饰图片 -->
-        <img class="deco-img" src="https://picsum.photos/id/0/300/150" alt="装饰风景">
+        <h4>职业状态</h4>
+        <p>✨ 目前在职，寻求更优发展平台<br>⚡ 可快速到岗 / 开放项目合作<br>🎯 期待职位：生产/研发总监、运营管理岗</p>
+        <img class="deco-img" src="https://picsum.photos/id/20/300/150" alt="workplace">
       </div>
+
       <div class="box" style="margin-top: 1.2rem">
-        <h4>更多链接</h4>
+        <h4>核心能力</h4>
+        <div class="skill-tags">
+          <span>生产计划与排程</span><span>GMP管理</span><span>研发转量产</span>
+          <span>团队领导力</span><span>工艺优化</span><span>跨部门协同</span>
+          <span>质量风险控制</span><span>项目管理</span><span>生物技术工艺</span>
+        </div>
+        <img class="deco-img" src="https://picsum.photos/id/26/300/150" alt="skills">
+      </div>
+
+      <div class="box" style="margin-top: 1.2rem">
+        <h4>证书 & 补充</h4>
         <div class="link-group">
-          <p><a href="#">📖 博客 / 技术笔记</a><br>
-          <a href="#">📄 在线简历</a><br>
-          <a href="#">🛠️ 作品集展示</a></p>
+          <p>📄 制药工程内审员培训<br>
+          🔬 生物安全/实验室管理认证<br>
+          📊 精益生产绿带（内部认证）<br>
+          🧪 多年生物试剂/多肽领域实战经验</p>
         </div>
       </div>
+
       <div class="box" style="margin-top: 1.2rem">
-        <h4>技术栈</h4>
-        <p style="font-size:0.85rem;">React · Vue · Node · Python · Tailwind</p>
-        <!-- 另一个小装饰图 -->
-        <img class="deco-img" src="https://picsum.photos/id/91/300/150" alt="代码示意" style="margin-top: 12px;">
+        <h4>个人理念</h4>
+        <p style="font-style: italic; color: #2c3e66;">“无论有多困难，都坚强地抬头挺胸，以专业和责任心交付结果。”<br>—— Gavin Zhang</p>
+        <img class="deco-img" src="https://picsum.photos/id/91/300/150" alt="motivation">
       </div>
     </aside>
   </div>
 
   <footer>
-    © <span id="year"></span> 你的名字 · 设计 & 构建 · 保持好奇
+    © <span id="year"></span> Gavin Zhang · 生物制药管理简历 · 保持专业与热忱
   </footer>
 </div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  // 平滑滚动
+  // 平滑滚动导航
   document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 </script>
