@@ -656,7 +656,7 @@
       <h1>Hi，我是 <span class="highlight">Gavin Zhang</span></h1>
       <div class="subhead">生物制药 · IVD原料 · 生产与研发管理</div>
       <p class="bio-line">
-        10+ 年深耕生物技术领域，从抗体研发到规模化生产，推动诊断原料国产化。
+        10+ 年深耕生物技术领域，从抗体研发到规模化生产，推���诊断原料国产化。
         以专业和责任心交付每个项目，助力健康事业发展。
       </p>
       <div class="hero-buttons">
@@ -930,11 +930,15 @@
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
       if (href === '#') return;
-      e.preventDefault();
       const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!target) return;
+      // 如果目标是 skill-detail，允许默认行为（让 hash 更新并触发 :target / hashchange）
+      if (target.classList.contains('skill-detail')) {
+        return;
       }
+      // 否则用于普通内部导航，拦截并平滑滚动
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 </script>
