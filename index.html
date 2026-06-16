@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- additional skills styles -->
+  <link rel="stylesheet" href="/styles/skills.css" />
   <style>
     /* ===== 全局重置 & 变量 ===== */
     * {
@@ -792,36 +794,87 @@
   </div>
 </section>
 
-<!-- ===== 核心能力 ===== -->
+<!-- ===== 核心能力 (改造后) ===== -->
 <section id="skills">
   <div class="container">
     <h2 class="section-title">核心 <span class="accent">能力</span></h2>
     <p class="section-sub">技术与管理双驱动</p>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <i class="fas fa-flask"></i>
+
+    <!-- 技能卡（每个卡片是一个锚点，指向下面的详情区） -->
+    <div class="skills-grid" aria-label="技能列表">
+      <a class="skill-card" href="#skill-antibody" aria-describedby="skill-antibody-desc">
+        <i class="fas fa-flask" aria-hidden="true"></i>
         <div class="name">抗体/抗原开发</div>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-industry"></i>
-        <div class="name">生产放大 & 工艺优化</div>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-clipboard-check"></i>
+      </a>
+
+      <a class="skill-card" href="#skill-scaleup" aria-describedby="skill-scaleup-desc">
+        <i class="fas fa-industry" aria-hidden="true"></i>
+        <div class="name">生产放大 &amp; 工艺优化</div>
+      </a>
+
+      <a class="skill-card" href="#skill-quality" aria-describedby="skill-quality-desc">
+        <i class="fas fa-clipboard-check" aria-hidden="true"></i>
         <div class="name">GMP / ISO13485 体系</div>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-chart-line"></i>
-        <div class="name">精益生产 & 成本控制</div>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-users"></i>
-        <div class="name">团队领导 & 跨部门协同</div>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-microscope"></i>
+      </a>
+
+      <a class="skill-card" href="#skill-lean" aria-describedby="skill-lean-desc">
+        <i class="fas fa-chart-line" aria-hidden="true"></i>
+        <div class="name">精益生产 &amp; 成本控制</div>
+      </a>
+
+      <a class="skill-card" href="#skill-team" aria-describedby="skill-team-desc">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        <div class="name">团队领导 &amp; 跨部门协同</div>
+      </a>
+
+      <a class="skill-card" href="#skill-platform" aria-describedby="skill-platform-desc">
+        <i class="fas fa-microscope" aria-hidden="true"></i>
         <div class="name">诊断平台应用测评</div>
-      </div>
+      </a>
+    </div>
+
+    <!-- 技能详情区：默认隐藏，使用 :target 显示（无 JS 也可工作） -->
+    <div class="skills-details">
+      <article id="skill-antibody" class="skill-detail" tabindex="-1" aria-labelledby="skill-antibody-title">
+        <a class="detail-close" href="#skills" aria-label="返回技能列表">← 返回</a>
+        <h3 id="skill-antibody-title">抗体/抗原开发</h3>
+        <p id="skill-antibody-desc">工艺开发、抗体筛选、重组表达、纯化流程优化；支持从实验室到中试的技术转化。</p>
+        <ul>
+          <li>单抗/多抗开发与人源化策略</li>
+          <li>表达载体与宿主优化（CHO/E.coli 等）</li>
+          <li>亲和力/特异性与稳定性评估方法学</li>
+        </ul>
+      </article>
+
+      <article id="skill-scaleup" class="skill-detail" tabindex="-1" aria-labelledby="skill-scaleup-title">
+        <a class="detail-close" href="#skills" aria-label="返回技能列表">← 返回</a>
+        <h3 id="skill-scaleup-title">生产放大 &amp; 工艺优化</h3>
+        <p id="skill-scaleup-desc">工艺参数放大、放大验证、工艺鲁棒性和批次一致性控制。</p>
+      </article>
+
+      <article id="skill-quality" class="skill-detail" tabindex="-1" aria-labelledby="skill-quality-title">
+        <a class="detail-close" href="#skills" aria-label="返回技能列表">← 返回</a>
+        <h3 id="skill-quality-title">GMP / ISO13485 体系</h3>
+        <p id="skill-quality-desc">质量管理、文件化体系建设、变更控制、CAPA、内部审核与供应链质量管理。</p>
+      </article>
+
+      <article id="skill-lean" class="skill-detail" tabindex="-1" aria-labelledby="skill-lean-title">
+        <a class="detail-close" href="#skills" aria-label="返回技能列表">← 返回</a>
+        <h3 id="skill-lean-title">精益生产 &amp; 成本控制</h3>
+        <p id="skill-lean-desc">6S/TPM/精益工具应用、瓶颈识别与产能提升、损耗与成本优化。</p>
+      </article>
+
+      <article id="skill-team" class="skill-detail" tabindex="-1" aria-labelledby="skill-team-title">
+        <a class="detail-close" href="#skills" aria-label="返回技能列表">← 返回</a>
+        <h3 id="skill-team-title">团队领导 &amp; 跨部门协同</h3>
+        <p id="skill-team-desc">团队组建、绩效管理、跨部门项目沟通与需求落地。</p>
+      </article>
+
+      <article id="skill-platform" class="skill-detail" tabindex="-1" aria-labelledby="skill-platform-title">
+        <a class="detail-close" href="#skills" aria-label="返回技能列表">← 返回</a>
+        <h3 id="skill-platform-title">诊断平台应用测评</h3>
+        <p id="skill-platform-desc">化学发光/层析/比浊等平台性能验证及原料/试剂兼容性测试。</p>
+      </article>
     </div>
   </div>
 </section>
@@ -885,5 +938,7 @@
     });
   });
 </script>
+<!-- skills script -->
+<script src="/scripts/skills.js"></script>
 </body>
 </html>
