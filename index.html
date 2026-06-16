@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gavin Zhang · 个人官网</title>
-  <!-- 字体与图标库 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
@@ -354,6 +353,27 @@
       box-shadow: 0 0 0 4px var(--primary-light);
     }
 
+    /* 公司 Logo 占位 (缩写) */
+    .exp-icon {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eef2ff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      transition: background 0.2s;
+    }
+
+    .exp-icon:hover {
+      background: #dce7f5;
+    }
+
     .timeline-item .company {
       font-weight: 700;
       font-size: 1.25rem;
@@ -390,6 +410,14 @@
 
     .timeline-item .desc li {
       margin-bottom: 4px;
+    }
+
+    /* 公司行内布局 (图标+文字) */
+    .timeline-header {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 0;
     }
 
     /* ===== 技能 ===== */
@@ -570,6 +598,12 @@
         gap: 16px;
         font-size: 0.85rem;
       }
+      .timeline-header {
+        flex-wrap: wrap;
+      }
+      .exp-icon {
+        margin-right: 0.5rem;
+      }
     }
 
     @media (max-width: 600px) {
@@ -589,6 +623,11 @@
         left: -27px;
         width: 12px;
         height: 12px;
+      }
+      .exp-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
       }
     }
   </style>
@@ -624,8 +663,8 @@
       </div>
     </div>
     <div class="hero-avatar">
-      <!-- 头像占位（picsum 随机人像） -->
-      <img src="https://picsum.photos/id/64/400/400" alt="Gavin Zhang" />
+      <!-- 男生肖像占位 (picsum id=33) -->
+      <img src="https://picsum.photos/id/33/400/400" alt="Gavin Zhang 头像" />
     </div>
   </div>
 </section>
@@ -665,8 +704,7 @@
         </div>
       </div>
       <div>
-        <!-- 装饰图片 -->
-        <img src="https://picsum.photos/id/26/600/400" alt="lab" style="width:100%; border-radius: 24px; box-shadow: var(--shadow);" />
+        <img src="https://picsum.photos/id/26/600/400" alt="实验室示意" style="width:100%; border-radius: 24px; box-shadow: var(--shadow);" />
       </div>
     </div>
   </div>
@@ -678,10 +716,15 @@
     <h2 class="section-title">工作 <span class="accent">经历</span></h2>
     <p class="section-sub">从研发到生产，全链条管理实践</p>
     <div class="timeline">
-      <!-- 1. 成都鸬鹚生物 (最新) -->
+      <!-- 1. 成都鸬鹚生物 -->
       <div class="timeline-item">
-        <div class="company">成都鸬鹚生物技术有限公司</div>
-        <div class="role">生产 / 研发负责人</div>
+        <div class="timeline-header">
+          <div class="exp-icon">鸬鹚</div>
+          <div>
+            <div class="company">成都鸬鹚生物技术有限公司</div>
+            <div class="role">生产 / 研发负责人</div>
+          </div>
+        </div>
         <div class="period">2023.04 – 至今</div>
         <div class="desc">
           <ul>
@@ -693,8 +736,13 @@
       </div>
       <!-- 2. 肽瑞莎 -->
       <div class="timeline-item">
-        <div class="company">四川肽瑞莎生物科技有限公司</div>
-        <div class="role">生产经理</div>
+        <div class="timeline-header">
+          <div class="exp-icon">肽瑞</div>
+          <div>
+            <div class="company">四川肽瑞莎生物科技有限公司</div>
+            <div class="role">生产经理</div>
+          </div>
+        </div>
         <div class="period">2021.07 – 2023.03</div>
         <div class="desc">
           <ul>
@@ -706,8 +754,13 @@
       </div>
       <!-- 3. 汇瑞新元 (正能旗下) -->
       <div class="timeline-item">
-        <div class="company">成都汇瑞新元生物科技有限公司</div>
-        <div class="role">研发部经理</div>
+        <div class="timeline-header">
+          <div class="exp-icon">汇瑞</div>
+          <div>
+            <div class="company">成都汇瑞新元生物科技有限公司</div>
+            <div class="role">研发部经理</div>
+          </div>
+        </div>
         <div class="period">2017.06 – 2021.07</div>
         <div class="desc">
           <ul>
@@ -719,8 +772,13 @@
       </div>
       <!-- 4. 正能生物 -->
       <div class="timeline-item">
-        <div class="company">成都正能生物技术有限责任公司</div>
-        <div class="role">生产部经理</div>
+        <div class="timeline-header">
+          <div class="exp-icon">正能</div>
+          <div>
+            <div class="company">成都正能生物技术有限责任公司</div>
+            <div class="role">生产部经理</div>
+          </div>
+        </div>
         <div class="period">2011.04 – 2017.06</div>
         <div class="desc">
           <ul>
@@ -804,10 +862,8 @@
 
 <!-- ===== JS 交互 ===== -->
 <script>
-  // 年份
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // 导航滚动阴影
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
@@ -817,7 +873,6 @@
     }
   });
 
-  // 平滑滚动（兼容）
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
