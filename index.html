@@ -136,6 +136,45 @@
       display: none !important;
     }
 
+    /* 导航高亮样式 */
+    .nav-links a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* ===== 回到顶部按钮 ===== */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(10, 75, 122, 0.3);
+      transition: opacity 0.3s, transform 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      z-index: 1000;
+    }
+    #back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    #back-to-top:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
     /* ===== 英雄区 ===== */
     #hero {
       min-height: 100vh;
@@ -338,6 +377,14 @@
     .timeline-item {
       margin-bottom: 48px;
       position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .timeline-item::before {
@@ -436,13 +483,20 @@
       padding: 20px 16px;
       border-radius: 20px;
       text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s, opacity 0.6s ease, transform 0.6s ease;
       cursor: pointer;
       text-decoration: none;
       color: inherit;
       display: block;
       border: none;
       box-shadow: none;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .skill-card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .skill-card:hover {
@@ -460,6 +514,69 @@
     .skill-card .name {
       font-weight: 600;
       font-size: 0.95rem;
+    }
+
+    /* ===== 项目成果 ===== */
+    #projects {
+      background: var(--bg);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .project-item {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s;
+    }
+    .project-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-item:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 30px 50px -20px rgba(0,0,0,0.15);
+    }
+
+    .project-item .project-icon {
+      font-size: 2.4rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .project-item h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+    .project-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .project-item .tags {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .project-item .tags span {
+      background: var(--bg);
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--primary);
     }
 
     /* ===== 联系 ===== */
@@ -538,6 +655,7 @@
       margin-bottom: 14px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: border 0.2s;
+      font-family: inherit;
     }
 
     .contact-form input::placeholder,
@@ -558,10 +676,32 @@
       border: none;
       width: 100%;
       font-weight: 600;
+      transition: background 0.2s;
     }
 
     .contact-form .btn-primary:hover {
       background: #1d8bc4;
+    }
+
+    /* 表单反馈消息 */
+    .form-feedback {
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      display: none;
+    }
+    .form-feedback.success {
+      display: block;
+      background: rgba(46, 204, 113, 0.2);
+      border: 1px solid #2ecc71;
+      color: #2ecc71;
+    }
+    .form-feedback.error {
+      display: block;
+      background: rgba(231, 76, 60, 0.2);
+      border: 1px solid #e74c3c;
+      color: #e74c3c;
     }
 
     /* ===== 模态框 ===== */
@@ -711,6 +851,9 @@
         padding: 24px 20px;
         margin: 10px;
       }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 600px) {
@@ -736,6 +879,13 @@
         height: 44px;
         font-size: 1rem;
       }
+      #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
@@ -746,13 +896,19 @@
   <div class="container nav-inner">
     <a href="#" class="logo">Gavin<span>.</span></a>
     <ul class="nav-links">
-      <li><a href="#about">关于</a></li>
-      <li><a href="#experience">经历</a></li>
-      <li><a href="#skills">能力</a></li>
-      <li><a href="#contact" class="nav-cta">联系</a></li>
+      <li><a href="#about" data-target="about">关于</a></li>
+      <li><a href="#experience" data-target="experience">经历</a></li>
+      <li><a href="#projects" data-target="projects">项目</a></li>
+      <li><a href="#skills" data-target="skills">能力</a></li>
+      <li><a href="#contact" class="nav-cta" data-target="contact">联系</a></li>
     </ul>
   </div>
 </nav>
+
+<!-- ===== 回到顶部按钮 ===== -->
+<button id="back-to-top" aria-label="回到顶部">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 <!-- ===== 英雄区 ===== -->
 <section id="hero">
@@ -770,7 +926,7 @@
       </div>
     </div>
     <div class="hero-avatar">
-      <img src="https://picsum.photos/id/33/400/400" alt="Gavin Zhang 头像" />
+      <img src="https://picsum.photos/id/33/400/400" alt="Gavin Zhang 头像" loading="lazy" />
     </div>
   </div>
 </section>
@@ -810,7 +966,7 @@
         </div>
       </div>
       <div>
-        <img src="https://picsum.photos/id/26/600/400" alt="实验室示意" style="width:100%; border-radius: 24px; box-shadow: var(--shadow);" />
+        <img src="https://picsum.photos/id/26/600/400" alt="实验室示意" style="width:100%; border-radius: 24px; box-shadow: var(--shadow);" loading="lazy" />
       </div>
     </div>
   </div>
@@ -893,6 +1049,34 @@
             <li>建立团队培训与绩效考核体系，保障出口级产品质量。</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 项目成果 ===== -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">项目 <span class="accent">成果</span></h2>
+    <p class="section-sub">代表性工作成果展示</p>
+    <div class="projects-grid">
+      <div class="project-item">
+        <div class="project-icon"><i class="fas fa-syringe"></i></div>
+        <h3>肿瘤标志物诊断原料开发</h3>
+        <p>主导完成 5 种肿瘤标志物（AFP、CEA、CA19-9等）单克隆抗体的研发与生产，产品性能对标进口品牌，成功应用于国内多家 IVD 企业的化学发光平台，累计销售额超 2000 万元。</p>
+        <div class="tags"><span>抗体开发</span><span>化学发光</span><span>肿瘤诊断</span></div>
+      </div>
+      <div class="project-item">
+        <div class="project-icon"><i class="fas fa-industry"></i></div>
+        <h3>生产放大与工艺优化项目</h3>
+        <p>负责将实验室 50L 发酵工艺放大至 500L 生产规模，优化纯化步骤，使目标蛋白收率提升 25%，单位成本降低 18%，年产能增加 30%，满足商业化供应需求。</p>
+        <div class="tags"><span>工艺放大</span><span>成本控制</span><span>精益生产</span></div>
+      </div>
+      <div class="project-item">
+        <div class="project-icon"><i class="fas fa-clipboard-check"></i></div>
+        <h3>质量体系搭建与净化车间建设</h3>
+        <p>主导建立符合 ISO13485 和 GMP 规范的质量管理体系，参与设计并建设 1000㎡ 净化车间（C级），制定文件体系与现场管理标准，顺利通过药监局体系核查。</p>
+        <div class="tags"><span>ISO13485</span><span>GMP</span><span>净化车间</span></div>
       </div>
     </div>
   </div>
@@ -1008,11 +1192,12 @@
           <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
-      <form class="contact-form" action="#" method="post">
-        <input type="text" placeholder="您的姓名" required />
-        <input type="email" placeholder="邮箱地址" required />
-        <textarea rows="4" placeholder="留言内容..."></textarea>
+      <form class="contact-form" id="contact-form" novalidate>
+        <input type="text" id="form-name" placeholder="您的姓名" required />
+        <input type="email" id="form-email" placeholder="邮箱地址" required />
+        <textarea id="form-message" rows="4" placeholder="留言内容..." required></textarea>
         <button type="submit" class="btn btn-primary">发送消息</button>
+        <div id="form-feedback" class="form-feedback"></div>
       </form>
     </div>
   </div>
@@ -1031,30 +1216,121 @@
     // ----- 年份 -----
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ----- 导航滚动阴影 -----
+    // ----- 导航滚动阴影 + 高亮 + 回到顶部按钮 -----
     const nav = document.getElementById('navbar');
-    window.addEventListener('scroll', function() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    function updateNavAndBackToTop() {
+      // 滚动阴影
       if (window.scrollY > 20) {
         nav.classList.add('scrolled');
       } else {
         nav.classList.remove('scrolled');
       }
+
+      // 回到顶部按钮可见性
+      if (window.scrollY > 500) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+
+      // 导航高亮
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const target = link.getAttribute('data-target');
+        if (target === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateNavAndBackToTop);
+    window.addEventListener('resize', updateNavAndBackToTop);
+    updateNavAndBackToTop(); // 初始调用
+
+    // 回到顶部点击
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ----- 内部链接平滑滚动 (不包括 #skills 内的卡片) -----
-    document.querySelectorAll('nav a[href^="#"]').forEach(function(anchor) {
+    // ----- 内部链接平滑滚动 (导航) -----
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        var href = this.getAttribute('href');
+        const href = this.getAttribute('href');
         if (href === '#') return;
         e.preventDefault();
-        var target = document.querySelector(href);
+        const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
 
-    // ----- 模态框逻辑 -----
+    // ----- 表单交互反馈 (前端验证 + 提示) -----
+    const form = document.getElementById('contact-form');
+    const feedback = document.getElementById('form-feedback');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('form-name').value.trim();
+      const email = document.getElementById('form-email').value.trim();
+      const message = document.getElementById('form-message').value.trim();
+
+      // 简单验证
+      let errors = [];
+      if (!name) errors.push('请填写您的姓名');
+      if (!email) errors.push('请填写邮箱地址');
+      else if (!/^\S+@\S+\.\S+$/.test(email)) errors.push('请输入有效的邮箱地址');
+      if (!message) errors.push('请填写留言内容');
+
+      if (errors.length > 0) {
+        feedback.className = 'form-feedback error';
+        feedback.textContent = '❌ ' + errors.join('；');
+        feedback.style.display = 'block';
+        return;
+      }
+
+      // 模拟提交成功
+      feedback.className = 'form-feedback success';
+      feedback.textContent = '✅ 消息已发送！我会尽快回复您。';
+      feedback.style.display = 'block';
+      form.reset();
+
+      // 3秒后隐藏消息
+      setTimeout(() => {
+        feedback.style.display = 'none';
+      }, 5000);
+    });
+
+    // ----- 滚动入场动画 (Intersection Observer) -----
+    const animateElements = document.querySelectorAll('.timeline-item, .skill-card, .project-item');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    animateElements.forEach(el => observer.observe(el));
+
+    // ----- 模态框逻辑 (技能卡片) -----
     var modal = document.getElementById('skill-modal');
     var modalContent = document.getElementById('modal-content');
     var closeButtons = document.querySelectorAll('[data-action="close"]');
@@ -1070,7 +1346,6 @@
       document.body.style.overflow = '';
     }
 
-    // 点击关闭按钮或遮罩关闭
     closeButtons.forEach(function(btn) {
       btn.addEventListener('click', closeModal);
     });
@@ -1079,14 +1354,12 @@
         closeModal();
       }
     });
-    // 按 ESC 关闭
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && modal.classList.contains('active')) {
         closeModal();
       }
     });
 
-    // ----- 技能卡片点击事件 -----
     var skillCards = document.querySelectorAll('.skill-card');
     skillCards.forEach(function(card) {
       card.addEventListener('click', function(e) {
@@ -1099,6 +1372,5 @@
 
   })();
 </script>
-
 </body>
 </html>
